@@ -2,10 +2,9 @@ const convertButton = document.querySelector(".convert-button");
 
 function convertValues() {
     const inputValue = document.querySelector(".input-value").value;
-    const escolherMoeda = document.querySelector(".change-currency").value;
     const valorParaConverter = document.querySelector(".moeda-valor-converter");
     const valorConvertido = document.querySelector(".moeda-valor-convertido");
-
+    const escolherMoeda = document.querySelector(".change-currency").value;
     const dolarDay = 5.2;
     const euroDay = 6.3;
 
@@ -30,7 +29,22 @@ function convertValues() {
 }
 
 function mudarTexto() {
-    console.log("mudei");
+    const textoAConverter = document.getElementById("texto-valor-convertido")
+    const escolherMoeda = document.querySelector(".change-currency").value
+    const imagemMoeda = document.querySelector(".moeda-imagem")
+
+    if(escolherMoeda == "dolar"){
+        
+        textoAConverter.innerHTML = "Dólar americano"
+        imagemMoeda.src = "./assets/estados-unidos .png"
+    }
+
+    if(escolherMoeda == "euro"){
+        textoAConverter.innerHTML = "Euro"
+        imagemMoeda.src = "./assets/euro.png"
+    }
+    
+    convertValues()
 }
 
 document.querySelector(".change-currency").addEventListener("change", mudarTexto);
